@@ -1,0 +1,24 @@
+
+//error 1
+HostNotFoundError [SequelizeHostNotFoundError]: getaddrinfo ENOTFOUND localhost
+    at ConnectionManager.connect (/home/aderaw/My_Folder/Website/clinic/backend/node_modules/sequelize/lib/dialects/mysql/connection-manager.js:96:17)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async ConnectionManager._connect (/home/aderaw/My_Folder/Website/clinic/backend/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:222:24) {
+  parent: Error: getaddrinfo ENOTFOUND localhost
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:71:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'localhost',
+    fatal: true
+  ,
+  original: Error: getaddrinfo ENOTFOUND localhost
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:71:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'localhost',
+    fatal: true
+    //port problem
+    sudo lsof -i :5000
+    sudo kill <PID>

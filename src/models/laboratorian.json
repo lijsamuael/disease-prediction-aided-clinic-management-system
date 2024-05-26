@@ -1,0 +1,57 @@
+[
+  
+    {
+      "firstName": "Kebede",
+      "lastName": "Ketema",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptates obcaecati numquam error et ut fugiat asperiores. Sunt nulla ad incidunt laboriosam, laudantium est unde natus cum numquam, neque facere. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, magni odio magnam commodi sunt ipsum eum! Voluptas eveniet aperiam at maxime, iste id dicta autem odio laudantium eligendi commodi distinctio!",
+      "photo":"https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg?w=2000",
+      "gender":"Female",
+      "id":"takami1",
+      "password":"titi",
+      "contact": "0920000000",
+      "username": "titi",
+      "email": "tita@gmail.com",
+      "date": "24 jul, 1992",
+      "state": "Amhara",
+      "wereda": "Bahir Dar",
+      "kebele": "Poly"
+    },
+
+    {
+      "firstName": "Kelele",
+      "lastName": "Ketema",
+      "age": 22,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptates obcaecati numquam error et ut fugiat asperiores. Sunt nulla ad incidunt laboriosam, laudantium est unde natus cum numquam, neque facere. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, magni odio magnam commodi sunt ipsum eum! Voluptas eveniet aperiam at maxime, iste id dicta autem odio laudantium eligendi commodi distinctio!",
+      "photo": "https://avatars.githubusercontent.com/u/101696125?v=4",
+      "gender": "Male",
+      "id": "takami2",
+      "password": "sami",
+      "contact": "0921644607",
+      "username": "titi",
+      "email": "tita@gmail.com",
+      "date": "24 jul, 1992",
+      "state": "Amhara",
+      "wereda": "Bahir Dar",
+      "kebele": "Poly"
+    },
+
+    {
+      "firstName": "Tekalele",
+      "lastName": "Workayehu",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptates obcaecati numquam error et ut fugiat asperiores. Sunt nulla ad incidunt laboriosam, laudantium est unde natus cum numquam, neque facere. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, magni odio magnam commodi sunt ipsum eum! Voluptas eveniet aperiam at maxime, iste id dicta autem odio laudantium eligendi commodi distinctio!",
+      "photo": "https://media.istockphoto.com/id/1189304032/photo/doctor-holding-digital-tablet-at-meeting-room.jpg?s=612x612&w=0&k=20&c=RtQn8w_vhzGYbflSa1B5ea9Ji70O8wHpSgGBSh0anUg=",
+      "gender": "Female",
+      "id": "takami3",
+      "password": "bibi",
+      "contact": "0991494750",
+      "username": "titi",
+      "email": "tita@gmail.com",
+      "date": "24 jul, 1992",
+      "state": "Amhara",
+      "wereda": "Bahir Dar",
+      "kebele": "Poly"
+    }
+
+
+  ]
+  

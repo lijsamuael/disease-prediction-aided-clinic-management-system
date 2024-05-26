@@ -1,0 +1,207 @@
+[
+      {
+        "name": "Common Cold",
+        "medications": [
+          {
+            "name": "Acetaminophen",
+            "price": 5.99
+          },
+          {
+            "name": "Ibuprofen",
+            "price": 4.49
+          },
+          {
+            "name": "Cough Syrup",
+            "price": 7.9
+          }
+        ]
+      },
+      {
+        "name": "Influenza (Flu)",
+        "medications": [
+          {
+            "name": "Oseltamivir",
+            "price": 19.99
+          },
+          {
+            "name": "Zanamivir",
+            "price": 24.99
+          },
+          {
+            "name": "Acetaminophen",
+            "price": 5.9
+          }
+        ]
+      },
+      {
+        "name": "Hypertension (High Blood Pressure)",
+        "medications": [
+          {
+            "name": "Lisinopril",
+            "price": 8.99
+          },
+          {
+            "name": "Amlodipine",
+            "price": 7.49
+          },
+          {
+            "name": "Losartan",
+            "price": 6.9
+          }
+        ]
+      },
+      {
+        "name": "Diabetes",
+        "medications": [
+          {
+            "name": "Metformin",
+            "price": 9.99
+          },
+          {
+            "name": "Insulin",
+            "price": 15.99
+          },
+          {
+            "name": "Gliclazide",
+            "price": 11.4
+          }
+        ]
+      },
+      {
+        "name": "Allergies",
+        "medications": [
+          {
+            "name": "Loratadine",
+            "price": 6.99
+          },
+          {
+            "name": "Cetirizine",
+            "price": 8.49
+          },
+          {
+            "name": "Fluticasone",
+            "price": 12.9
+          }
+        ]
+      },
+      {
+        "name": "Migraine",
+        "medications": [
+          {
+            "name": "Sumatriptan",
+            "price": 9.99
+          },
+          {
+            "name": "Rizatriptan",
+            "price": 11.49
+          },
+          {
+            "name": "Naproxen",
+            "price": 7
+          }
+        ]
+      },
+      {
+        "name": "Asthma",
+        "medications": [
+          {
+            "name": "Albuterol",
+            "price": 8.99
+          },
+          {
+            "name": "Budesonide",
+            "price": 14.99
+          },
+          {
+            "name": "Montelukast",
+            "price": 9.4
+          }
+        ]
+      },
+      {
+        "name": "Arthritis",
+        "medications": [
+          {
+            "name": "Ibuprofen",
+            "price": 4.49
+          },
+          {
+            "name": "Naproxen",
+            "price": 7.99
+          },
+          {
+            "name": "Celecoxib",
+            "price": 13.9
+          }
+        ]
+      },
+      {
+        "name": "Depression",
+        "medications": [
+          {
+            "name": "Sertraline",
+            "price": 10.99
+          },
+          {
+            "name": "Fluoxetine",
+            "price": 9.49
+          },
+          {
+            "name": "Escitalopram",
+            "price": 11.9
+          }
+        ]
+      },
+      {
+        "name": "Gastroesophageal Reflux Disease (GERD)",
+        "medications": [
+          {
+            "name": "Omeprazole",
+            "price": 7.99
+          },
+          {
+            "name": "Esomeprazole",
+            "price": 9.99
+          },
+          {
+            "name": "Lansoprazole",
+            "price": 8.4
+          }
+        ]
+      },
+      {
+        "name": "Urinary Tract Infection (UTI)",
+        "medications": [
+          {
+            "name": "Nitrofurantoin",
+            "price": 12.99
+          },
+          {
+            "name": "Ciprofloxacin",
+            "price": 10.49
+          },
+          {
+            "name": "Trimethoprim/sulfamethoxazole",
+            "price": 9.9
+          }
+        ]
+      },
+      {
+        "name": "Osteoporosis",
+        "medications": [
+          {
+            "name": "Alendronate",
+            "price": 8.99
+          },
+          {
+            "name": "Risedronate",
+            "price": 10.99
+          },
+          {
+            "name": "Ibandronate",
+            "price": 11.4
+          }
+        ]
+      }
+    ]
+  

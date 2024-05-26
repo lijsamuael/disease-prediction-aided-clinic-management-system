@@ -1,0 +1,29 @@
+[
+  {
+    "id": "diag1",
+    "patient_id": "takami1",
+    "date": "2023-05-24",
+    "disease": "",
+    "docId": "doc1",
+    "status": "pending",
+    "medications": []
+  },
+  {
+    "id": "diag2",
+    "patient_id": "takami2",
+    "date": "2023-05-24",
+    "disease": "",
+    "docId": "doc1",
+    "status": "pending",
+    "medications": []
+  },
+  {
+    "id": "diag3",
+    "patient_id": "takami3",
+    "date": "2023-05-24",
+    "disease": "",
+    "docId": "doc2",
+    "status": "pending",
+    "medications": []
+  }
+]

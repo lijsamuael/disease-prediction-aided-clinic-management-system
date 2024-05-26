@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "userType": "patient",
+      "inputType": ["text"],
+      "inputs": ["cardId"],
+      "placeholder": ["Enter card number"]
+    },
+    {
+      "userType": "doctor",
+      "inputType": ["text", "password"],
+      "inputs": ["userName", "password"],
+      "placeholder": ["Enter username", "Enter password"]
+    },
+    {
+      "userType": "admin",
+      "inputType": ["text", "password"],
+      "inputs": ["userName", "password"],
+      "placeholder": ["Enter username", "Enter password"]
+    }
+  ]
+}

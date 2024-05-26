@@ -1,0 +1,339 @@
+[
+    {
+        "id": "pr1",
+        "docId": "doc3",
+        "patientId": "takami2",
+        "labId": "labr1",
+        "issuedDate": "12-04-8",
+        "disease": "Typhonid",
+        "prescription": [
+          {
+              "description": "this patient seems affected with Typoid, he shows differnt sympthoms like caughing and exta and on the way i am going to somein special to the way we are going to do some things.",
+              "toBeTested": ["Segera", "Blood", "Blood Pressure", "X-ray"],
+              "results": [
+                  {
+                    "test_name": "Complete Blood Count",
+                    "values": "2.4"
+                  },
+                  {
+                    "test_name": "Liver Function Test",
+                    "values": "4.5"
+                  },
+                  {
+                    "test_name": "Lipid Profile",
+                    "values": {
+                      "cholesterol": 190,
+                      "triglycerides": 150,
+                      "HDL": 45,
+                      "LDL": 125
+                    }
+                  },
+                  {
+                    "test_name": "Renal Function Test",
+                    "values": {
+                      "creatinine": 0.9,
+                      "urea": 20,
+                      "sodium": 140,
+                      "potassium": 4
+                    }
+                  },
+                  {
+                    "test_name": "Thyroid Function Test",
+                    "values": {
+                      "TSH": 2.5,
+                      "T3": 2.8,
+                      "T4": 1.2
+                    }
+                  },
+                  {
+                    "test_name": "Blood Glucose",
+                    "values": {
+                      "fasting_glucose": 95,
+                      "postprandial_glucose": 120
+                    }
+                  },
+                  {
+                    "test_name": "HbA1c",
+                    "values": {
+                      "HbA1c": 5.6
+                    }
+                  },
+                  {
+                    "test_name": "C-Reactive Protein",
+                    "values": {
+                      "CRP": 2.4
+                    }
+                  },
+                  {
+                    "test_name": "Vitamin D",
+                    "values": {
+                      "vitamin_D": 35
+                    }
+                  },
+                  {
+                    "test_name": "Iron Panel",
+                    "values": {
+                      "iron": 80,
+                      "ferritin": 50
+                    }
+                  }
+                ]
+              
+          }
+      ]
+
+    },
+    {
+        "id": "pr2",
+        "docId": "doc2",
+        "patientId": "takami2",
+        "labId": "labr1",
+        "issuedDate": "12-04-8",
+        "disease": "Typhonid",
+        "prescription": [
+          {
+              "description": "this patient seems affected with Typoid, he shows differnt sympthoms like caughing and exta and on the way i am going to somein special to the way we are going to do some things.",
+              "toBeTested": ["Segera", "Blood", "Blood Pressure", "X-ray"],
+              "results": [
+                  {
+                    "test_name": "Complete Blood Count",
+                    "values": "2.4"
+                  },
+                  {
+                    "test_name": "Liver Function Test",
+                    "values": "4.5"
+                  },
+                  {
+                    "test_name": "Lipid Profile",
+                    "values": {
+                      "cholesterol": 190,
+                      "triglycerides": 150,
+                      "HDL": 45,
+                      "LDL": 125
+                    }
+                  },
+                  {
+                    "test_name": "Renal Function Test",
+                    "values": {
+                      "creatinine": 0.9,
+                      "urea": 20,
+                      "sodium": 140,
+                      "potassium": 4
+                    }
+                  },
+                  {
+                    "test_name": "Thyroid Function Test",
+                    "values": {
+                      "TSH": 2.5,
+                      "T3": 2.8,
+                      "T4": 1.2
+                    }
+                  },
+                  {
+                    "test_name": "Blood Glucose",
+                    "values": {
+                      "fasting_glucose": 95,
+                      "postprandial_glucose": 120
+                    }
+                  },
+                  {
+                    "test_name": "HbA1c",
+                    "values": {
+                      "HbA1c": 5.6
+                    }
+                  },
+                  {
+                    "test_name": "C-Reactive Protein",
+                    "values": {
+                      "CRP": 2.4
+                    }
+                  },
+                  {
+                    "test_name": "Vitamin D",
+                    "values": {
+                      "vitamin_D": 35
+                    }
+                  },
+                  {
+                    "test_name": "Iron Panel",
+                    "values": {
+                      "iron": 80,
+                      "ferritin": 50
+                    }
+                  }
+                ]
+              
+          }
+      ]
+
+    },
+    {
+        "id": "pr3",
+        "docId": "doc1",
+        "patientId": "takami3",
+        "labId": "labr1",
+        "issuedDate": "12-04-8",
+        "disease": "Typhonid",
+        "prescription": [
+          {
+              "description": "this patient seems affected with Typoid, he shows differnt sympthoms like caughing and exta and on the way i am going to somein special to the way we are going to do some things.",
+              "toBeTested": ["Segera", "Blood", "Blood Pressure", "X-ray"],
+              "results": [
+                  {
+                    "test_name": "Complete Blood Count",
+                    "values": "2.4"
+                  },
+                  {
+                    "test_name": "Liver Function Test",
+                    "values": "4.5"
+                  },
+                  {
+                    "test_name": "Lipid Profile",
+                    "values": {
+                      "cholesterol": 190,
+                      "triglycerides": 150,
+                      "HDL": 45,
+                      "LDL": 125
+                    }
+                  },
+                  {
+                    "test_name": "Renal Function Test",
+                    "values": {
+                      "creatinine": 0.9,
+                      "urea": 20,
+                      "sodium": 140,
+                      "potassium": 4
+                    }
+                  },
+                  {
+                    "test_name": "Thyroid Function Test",
+                    "values": {
+                      "TSH": 2.5,
+                      "T3": 2.8,
+                      "T4": 1.2
+                    }
+                  },
+                  {
+                    "test_name": "Blood Glucose",
+                    "values": {
+                      "fasting_glucose": 95,
+                      "postprandial_glucose": 120
+                    }
+                  },
+                  {
+                    "test_name": "HbA1c",
+                    "values": {
+                      "HbA1c": 5.6
+                    }
+                  },
+                  {
+                    "test_name": "C-Reactive Protein",
+                    "values": {
+                      "CRP": 2.4
+                    }
+                  },
+                  {
+                    "test_name": "Vitamin D",
+                    "values": {
+                      "vitamin_D": 35
+                    }
+                  },
+                  {
+                    "test_name": "Iron Panel",
+                    "values": {
+                      "iron": 80,
+                      "ferritin": 50
+                    }
+                  }
+                ]
+              
+          }
+      ]
+
+    },
+    {
+      "id": "pr4",
+      "docId": "doc1",
+      "patientId": "takami3",
+      "labId": "labr1",
+      "issuedDate": "12-04-8",
+      "disease": "Typhonid",
+      "prescription": [
+        {
+            "description": "this patient seems affected with Typoid, he shows differnt sympthoms like caughing and exta and on the way i am going to somein special to the way we are going to do some things.",
+            "toBeTested": ["Segera", "Blood", "Blood Pressure", "X-ray"],
+            "results": [
+                {
+                  "test_name": "Complete Blood Count",
+                  "values": "2.4"
+                },
+                {
+                  "test_name": "Liver Function Test",
+                  "values": "4.5"
+                },
+                {
+                  "test_name": "Lipid Profile",
+                  "values": {
+                    "cholesterol": 190,
+                    "triglycerides": 150,
+                    "HDL": 45,
+                    "LDL": 125
+                  }
+                },
+                {
+                  "test_name": "Renal Function Test",
+                  "values": {
+                    "creatinine": 0.9,
+                    "urea": 20,
+                    "sodium": 140,
+                    "potassium": 4
+                  }
+                },
+                {
+                  "test_name": "Thyroid Function Test",
+                  "values": {
+                    "TSH": 2.5,
+                    "T3": 2.8,
+                    "T4": 1.2
+                  }
+                },
+                {
+                  "test_name": "Blood Glucose",
+                  "values": {
+                    "fasting_glucose": 95,
+                    "postprandial_glucose": 120
+                  }
+                },
+                {
+                  "test_name": "HbA1c",
+                  "values": {
+                    "HbA1c": 5.6
+                  }
+                },
+                {
+                  "test_name": "C-Reactive Protein",
+                  "values": {
+                    "CRP": 2.4
+                  }
+                },
+                {
+                  "test_name": "Vitamin D",
+                  "values": {
+                    "vitamin_D": 35
+                  }
+                },
+                {
+                  "test_name": "Iron Panel",
+                  "values": {
+                    "iron": 80,
+                    "ferritin": 50
+                  }
+                }
+              ]
+            
+        }
+    ]
+
+  }
+    
+]
