@@ -2,38 +2,53 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoginIcon from "../../components/icons/login";
 import Landing from "../../components/landing";
+import { diseaseLabels } from "../../constants/disease";
+import { symptoms } from "../../constants/symptoms";
 
 export default function Home() {
-  // const [model, setModel] = useState();
+  const [model, setModel] = useState(null);
+  const [selectedSymptoms, setSelectedSymptoms] = useState(
+    new Array(symptoms.length).fill(0)
+  );
+  const [prediction, setPrediction] = useState(null);
 
-  // useEffect(() => {
-  //   async function loadModel() {
-  //     try {
-  //       // Load the model from your directory
-  //       const loadedModel = await tf.loadLayersModel(
-  //         "file://home/kali/Documents/Devssinia/MediConnect/frontend/public/models/model.json"
-  //       );
-  //       setModel(loadedModel);
-  //       console.log("Model loaded successfully");
-  //     } catch (error) {
-  //       console.error("Error loading model:", error);
-  //     }
-  //   }
+  async function loadModel() {}
 
-  //   loadModel();
-  // }, []);
-
-  async function loadModel() {
+  const predict = async () => {
     console.log("loading a model");
 
     const model = await window.tflite.loadTFLiteModel(
-      "file://home/kali/Documents/Devssinia/MediConnect/frontend/public/models/model.json"
+      "https://raw.githubusercontent.com/lijsamuael/disease-prediction-aided-clinic-management-system/main/public/models/model.tflite"
     );
     console.log("model loaded sucessfully");
-  }
+
+    console.log("selected ", selectedSymptoms);
+
+    const inputTensor = window.tf.tensor(
+      [selectedSymptoms],
+      [1, symptoms.length]
+    );
+
+    const predictions = await model.predict(inputTensor).array();
+    console.log("Predictions:", predictions);
+
+    const predictedIndex = predictions[0].indexOf(Math.max(...predictions[0]));
+
+    const predictedDisease = diseaseLabels[predictedIndex];
+
+    setPrediction(predictedDisease);
+    console.log("predicted disease", predictedDisease);
+  };
+
+  const handleSymptomChange = (event, index) => {
+    const updatedSymptoms = [...selectedSymptoms];
+    updatedSymptoms[index] = event.target.checked ? 1 : 0;
+    setSelectedSymptoms(updatedSymptoms);
+    console.log("selected ", selectedSymptoms);
+  };
 
   useEffect(() => {
-    loadModel();
+    predict();
   }, []);
 
   return (
@@ -100,6 +115,33 @@ export default function Home() {
           </div>
         </div>
       </nav>
+      <div className="p-4 bg-gray-800 pt-24 text-white">
+        <h1 className="text-2xl font-bold mb-4">Disease Predictor</h1>
+        <div className="mb-4 grid grid-cols-4">
+          {symptoms.map((symptom, index) => (
+            <div key={index} className="flex items-center mb-2">
+              <input
+                type="checkbox"
+                name={symptom}
+                onChange={(event) => handleSymptomChange(event, index)}
+                className="mr-2"
+              />
+              <label className="text-lg">{symptom}</label>
+            </div>
+          ))}
+        </div>
+        <button
+          onClick={predict}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Predict Disease
+        </button>
+        {prediction && (
+          <p className="mt-4 text-xl font-semibold">
+            The predicted disease is: {prediction}
+          </p>
+        )}
+      </div>
       <Landing />
 
       <section className="py-16 bg-white dark:bg-gray-900">
