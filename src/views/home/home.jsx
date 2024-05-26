@@ -53,8 +53,9 @@ export default function Home() {
 
   return (
     <div
-      className="overflow-x-hidden bg-fixed bg-cover"
-      //   style={{ backgroundImage: "url(/images/bg3.png)" }}
+      className="overflow-x-hidden bg-fixed bg-cover font-mono"
+      // style={{ fontFamily: "Righteous" }}
+      style={{ backgroundImage: "url(/images/bg3.png)" }}
     >
       <nav className="fixed z-30 w-screen px-4 py-4 bg-white border-gray-200 shadow-lg lg:px-6 dark:bg-gray-800 bg-white/95 ">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto ">
@@ -117,7 +118,10 @@ export default function Home() {
       </nav>
       <div className="p-4 bg-gray-800 pt-24 text-white">
         <h1 className="text-2xl font-bold mb-4">Disease Predictor</h1>
-        <div className="mb-4 grid grid-cols-4">
+        <h2 className="pb-4 text-lg font-bold">
+          Select symptoms that you are feeling now.
+        </h2>
+        <div className="mb-4 grid grid-cols-4 bg-gray-700 p-4 rounded-lg space-y-4">
           {symptoms.map((symptom, index) => (
             <div key={index} className="flex items-center mb-2">
               <input
