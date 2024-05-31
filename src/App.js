@@ -38,6 +38,7 @@ import PrescriptionDetail from "./components/doctor/prescriptionDetail";
 import Treatment from "./components/doctor/treatment";
 import SendToLabratory from "./components/doctor/sendToLabratory";
 import ProtectedRoute from "./protectedRoute";
+import PrescriptionModal from "./components/doctor/prescriptionModal";
 export default function App() {
   localStorage.getItem("labToken");
   localStorage.getItem("adminToken");
@@ -65,6 +66,10 @@ export default function App() {
             />
             <Route path="labratory" element={<ResponseLabratoryComponent />} />
             <Route path="prescription" element={<SendToLabratory />} />
+            <Route
+              path="sendToLaboratory/:id"
+              element={<PrescriptionModal />}
+            />
             <Route
               path="prescription/:prescriptionId"
               index

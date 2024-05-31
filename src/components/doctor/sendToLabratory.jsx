@@ -323,13 +323,17 @@ export default function SendToLabratory(props) {
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
 
-  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const currentUser = useSelector((state) => state.currentUser.currentDoctor);
   const [filteredAppointmentsWithName, setFilteredAppointmentsWithName] =
     useState([]);
+
+
   // const getPatientName = (patientId) => {
   //   const patient = patients.find((p) => p.id=== patientId)
   //   return patient? `${patient.firstName} ${patient.lastName}` : '';
   // };
+
+
   const getPatientName = (patientId) => {
     const patient = patients.find((p) => p.id == patientId);
     return patient ? `${patient.firstName} ${patient.lastName}` : "";

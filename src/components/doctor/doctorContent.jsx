@@ -15,9 +15,10 @@ export default function DoctorContent(props) {
   const appointments = useSelector((state) => state.appointments.appointments);
   const [patientId, setPatientId] = useState("");
   const prsc = useSelector((state) => state.prescriptions.prescriptions);
-  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const currentUser = useSelector((state) => state.currentUser.currentDoctor);
   const [showModal, setShowModal] = useState(false);
   const [doctorPrescriptions, setDoctorPrescriptions] = useState([]);
+
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
 
@@ -30,8 +31,6 @@ export default function DoctorContent(props) {
   };
 
   const getGender = (patientId) => {
-    console.log("patients", patients);
-    console.log("patient id", patientId);
     const patient = patients.find((p) => p.id == patientId);
     // console.log("the gender of this patient is",patient.gender)
     // console.log("tha name of this patient is",patient.firstName)
@@ -47,19 +46,28 @@ export default function DoctorContent(props) {
     const filtered = appointments.filter(
       (appointment) => appointment.doctorId == currentUser.id
     );
+
     console.log("good currrent user id is ", currentUser.id);
     console.log("filtered appointment is ", filtered);
+
     const appointmentPatientNames = filtered.map((appointment) => ({
       ...appointment,
       patientName: getPatientName(appointment.patientId) || "Unknown",
       gender: getGender(appointment.patientId) || "Unknown",
       contact: getContact(appointment.patientId) || "Unknown",
     }));
-    console.log("apointment patient info", appointmentPatientNames);
+
     setFilteredAppointmentsWithName(appointmentPatientNames);
+    console.log(
+      "filter appointments with namesssssssssss",
+      appointmentPatientNames
+    );
+    console.log("filter appointments with names", filteredAppointmentsWithName);
+
     const filteredPrescriptions = prescriptions.filter(
       (prescription) => prescription.doctorId == currentUser.id
     );
+
     const prescriptionPatientNames = filteredPrescriptions.map(
       (prescription) => ({
         ...prescription,
@@ -68,12 +76,9 @@ export default function DoctorContent(props) {
         contact: getContact(prescription.patientId),
       })
     );
+
     setDoctorPrescriptions(prescriptionPatientNames);
   }, []);
-
-  useEffect(() => {
-    console.log(patientId);
-  }, [patientId]);
 
   return (
     <>
@@ -143,84 +148,150 @@ export default function DoctorContent(props) {
                     <th className="px-4 py-3">Date</th>
                     <th className="px-4 py-3">Time</th>
                     <th className="px-4 py-3">Location</th>
+                    <th className="px-4 py-3">Remaining Time</th>
                     <th className="px-4 py-4">Actions</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                   {filteredAppointmentsWithName &&
-                    filteredAppointmentsWithName.map((item, index) => (
-                      <tr
-                        key={index}
-                        className="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400"
-                      >
-                        <td className="px-4 py-3">
-                          <div className="flex items-center text-sm">
-                            {/* <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                              <img
-                                className="object-cover w-full h-full rounded-full"
-                                src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                                alt=""
-                                loading="lazy"
-                              />
-                              <div
-                                className="absolute inset-0 rounded-full shadow-inner"
-                                aria-hidden="true"
-                              ></div>
-                            </div> */}
-                            <div>
-                              <p className="font-semibold">
-                                {item.patientName}
-                              </p>
-                            </div>
-                          </div>
-                        </td>
+                    filteredAppointmentsWithName.map((item, index) => {
+                      const appointmentDateTime = new Date(
+                        item.date + "T" + item.time
+                      );
+                      const currentTime = new Date();
+                      const remainingTimeInMs =
+                        appointmentDateTime - currentTime;
+                      const remainingDays = Math.floor(
+                        remainingTimeInMs / (1000 * 60 * 60 * 24)
+                      );
+                      const remainingHours = Math.floor(
+                        (remainingTimeInMs % (1000 * 60 * 60 * 24)) /
+                          (1000 * 60 * 60)
+                      );
+                      const remainingMinutes = Math.floor(
+                        (remainingTimeInMs % (1000 * 60 * 60)) / (1000 * 60)
+                      );
 
-                        <td className="px-4 py-3 text-sm">{item.gender}</td>
-                        <td className="px-4 py-3 text-sm">{item.contact}</td>
-                        <td className="px-4 py-3 text-sm">{item.date}</td>
-                        <td className="px-4 py-3 text-sm">{item.time}</td>
-                        <td className="px-4 py-3 text-sm">{item.location}</td>
-                        <td className="px-2 py-3">
-                          <div className="inline-flex items-center space-x-3">
-                            <div className="flex-shrink-0">
-                              <button
-                                onClick={handleShow}
-                                className="p-2 text-sm font-medium text-white rounded-lg bg-primary hover:bg-blue-700"
-                              >
-                                Send Test Cases For Lab
-                              </button>
-                              <PrescriptionModal
-                                showModal={showModal}
-                                handleClose={handleClose}
-                                // item here is appointment
-                                item={item}
-                              />
-                            </div>
-                            <td className="px-2 py-3">
-                              <div className="inline-flex items-center space-x-3">
-                                <div className="flex-shrink-0">
-                                  <div className="inline-flex items-center space-x-3">
-                                    {/* <button
-                              onClick={handleDiagnosis(item.patientId)}
-                                className="p-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600"
-                              >
-                                Prescribe
-                              </button> */}
-                                    {/* <Link
-                                      to={`/doctor/dgs/${item.patientId}`}
-                                      className="p-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600"
-                                    >
-                                      Prescribe
-                                    </Link> */}
-                                  </div>
+                      return (
+                        new Date(item.date + "T" + item.time) > new Date() && (
+                          <tr
+                            key={index}
+                            className="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400"
+                          >
+                            <td className="px-4 py-3">
+                              <div className="flex items-center text-sm">
+                                <div>
+                                  <p className="font-semibold">
+                                    {item.patientName}
+                                  </p>
                                 </div>
                               </div>
                             </td>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
+
+                            <td className="px-4 py-3 text-sm">{item.gender}</td>
+                            <td className="px-4 py-3 text-sm">
+                              {item.contact}
+                            </td>
+                            <td className="px-4 py-3 text-sm">{item.date}</td>
+                            <td className="px-4 py-3 text-sm">{item.time}</td>
+                            <td className="px-4 py-3 text-sm">
+                              {item.location}
+                            </td>
+                            <td className="px-4 py-3 text-sm">
+                              {remainingDays > 0 && `${remainingDays}d `}
+                              {remainingHours}h {remainingMinutes}m
+                            </td>
+                            <td className="px-2 py-3">
+                              <div className="inline-flex items-center space-x-3">
+                                <div className="flex-shrink-0">
+                                  <Link
+                                    to={`/doctor/sendToLaboratory/:${item.patientId}`}
+                                    className="p-2 text-sm font-medium text-white rounded-lg bg-primary hover:bg-blue-700"
+                                  >
+                                    Send Test Cases For Lab
+                                  </Link>
+                                </div>
+                                <td className="px-2 py-3">
+                                  <div className="inline-flex items-center space-x-3">
+                                    <div className="flex-shrink-0">
+                                      <div className="inline-flex items-center space-x-3">
+                                        {/* <button
+                                onClick={handleDiagnosis(item.patientId)}
+                                  className="p-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600"
+                                >
+                                  Prescribe
+                                </button> */}
+                                        {/* <Link
+                                        to={`/doctor/dgs/${item.patientId}`}
+                                        className="p-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600"
+                                      >
+                                        Prescribe
+                                      </Link> */}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                              </div>
+                            </td>
+                          </tr>
+                        )
+                      );
+                    })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="w-full rounded-lg shadow-xs pt-4">
+            <h1 className="px-2 py-4 font-mono text-xl font-bold tracking-widest  text-gray-700 dark:text-white ">
+              Your Past Appointments
+            </h1>
+            <div className="w-full overflow-visible">
+              <table className="w-full sm:w-full">
+                <thead>
+                  <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                    <th className="px-4 py-3">Patient Full Name</th>
+                    <th className="px-4 py-3">Gender</th>
+                    <th className="px-4 py-3">Contact</th>
+                    <th className="px-4 py-3">Date</th>
+                    <th className="px-4 py-3">Time</th>
+                    <th className="px-4 py-3">Location</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                  {filteredAppointmentsWithName &&
+                    filteredAppointmentsWithName.map((item, index) => {
+                      return (
+                        new Date(item.date + "T" + item.time) < new Date() && (
+                          <tr
+                            key={index}
+                            className="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400"
+                          >
+                            <td className="px-4 py-3">
+                              <div className="flex items-center text-sm">
+                                <div>
+                                  <p className="font-semibold">
+                                    {item.patientName}
+                                  </p>
+                                </div>
+                              </div>
+                            </td>
+
+                            <td className="px-4 py-3 text-sm">{item.gender}</td>
+                            <td className="px-4 py-3 text-sm">
+                              {item.contact}
+                            </td>
+                            <td className="px-4 py-3 text-sm">{item.date}</td>
+                            <td className="px-4 py-3 text-sm">{item.time}</td>
+                            <td className="px-4 py-3 text-sm">
+                              {item.location}
+                            </td>
+                          </tr>
+                        )
+                      );
+                    })}
                 </tbody>
               </table>
             </div>

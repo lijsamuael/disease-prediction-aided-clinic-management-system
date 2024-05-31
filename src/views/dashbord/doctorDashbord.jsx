@@ -113,8 +113,8 @@ export default function DoctorDashbord(props) {
           <div className="h-full mb-10 ml-14 mt-14 md:ml-64">
             <div className="flex flex-wrap justify-center my-5 ml-2 mr-1 -mx-2">
               <div className="w-full p-2 lg:w-1/3">
-                <div className="flex flex-row items-center w-full p-3 bg-blue-500 rounded-md dark:from-cyan-500 dark:to-gray-500 from-indigo-500 via-purple-500 to-pink-500">
-                  <div className="flex text-indigo-500 dark:text-white items-center bg-white dark:bg-[#0F172A] p-2 rounded-md flex-none w-8 h-8 md:w-12 md:h-12 ">
+                <div className="flex flex-row items-center w-full p-3 bg-blue-500 dark:bg-gray-800 rounded-md dark:from-cyan-500 dark:to-gray-500 from-indigo-500 via-purple-500 to-pink-500">
+                  <div className="flex text-indigo-500 dark:text-white items-center bg-white p-2 rounded-md flex-none w-8 h-8 md:w-12 md:h-12 ">
                     <img
                       src="icons/appointment.jpg"
                       alt=""
@@ -130,7 +130,7 @@ export default function DoctorDashbord(props) {
                 </div>
               </div>
               <div className="w-full p-2 md:w-1/2 lg:w-1/3 ">
-                <div className="flex flex-row items-center w-full p-3 bg-blue-500 rounded-md dark:from-cyan-500 dark:to-gray-500 from-indigo-500 via-purple-500 to-pink-500">
+                <div className="flex flex-row items-center w-full p-3 bg-blue-500 dark:bg-gray-800 rounded-md dark:from-cyan-500 dark:to-gray-500 from-indigo-500 via-purple-500 to-pink-500">
                   <div className="flex items-center flex-none w-8 h-8 p-2 text-indigo-500 bg-white rounded-md dark:text-white md:w-12 md:h-12 ">
                     <img
                       src="/icons/prescription.png"
@@ -147,8 +147,8 @@ export default function DoctorDashbord(props) {
                 </div>
               </div>
               <div className="w-full p-2 md:w-1/2 lg:w-1/3">
-                <div className="flex flex-row items-center w-full p-3 bg-blue-500 rounded-md dark:from-cyan-500 dark:to-gray-500 from-indigo-500 via-purple-500 to-pink-500">
-                  <div className="flex text-indigo-500 dark:text-white items-center bg-white dark:bg-[#0F172A] p-2 rounded-md flex-none w-8 h-8 md:w-12 md:h-12 ">
+                <div className="flex flex-row items-center w-full p-3 bg-blue-500 dark:bg-gray-800 rounded-md dark:from-cyan-500 dark:to-gray-500 from-indigo-500 via-purple-500 to-pink-500">
+                  <div className="flex text-indigo-500 dark:text-white items-center bg-white  p-2 rounded-md flex-none w-8 h-8 md:w-12 md:h-12 ">
                     <img
                       src="/icons/lab.png"
                       alt=""
