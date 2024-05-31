@@ -1,50 +1,54 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import {useState,useEffect} from 'react'
-export default function Treatment(){
-    const patients=useSelector((state)=>state.patients.patients)
-    const prescriptions=useSelector((state) => state.diagnosises.diagnosises);
-  
-    const [showModal, setShowModal] = useState(false);
-    const [doctorPrescriptions, setDoctorPrescriptions] = useState([])
-    
-    const currentUser = useSelector((state) => state.currentUser.currentUser);
-    const [filteredDiagnosisesWithName, setFilteredDiagnosisesWithName] = useState([]);
-    // const getPatientName = (patientId) => {
-    //   const patient = patients.find((p) => p.id=== patientId)
-    //   return patient? `${patient.firstName} ${patient.lastName}` : '';
-    // };
-    const getPatientName=(patientId) =>{
-      const patient = patients.find((p) => p.id === patientId);
-      return patient? `${patient.firstName} ${patient.lastName}`:'';
-    };
-  
-    const getGender =  (patientId) => {
-      const patient =patients.find((p) => p.id === patientId);
-      // console.log("the gender of this patient is",patient.gender)
-      // console.log("tha name of this patient is",patient.firstName)
-      return patient ? patient.gender :'';
-    };
-    const getContact = (patientId) => {
-      const patient = patients.find((p) => p.id === patientId);
-      return patient ? patient.contact : '';
-    };
-  
-    useEffect(() => { 
-      
-      const filteredPrescriptions = prescriptions.filter((prescription) => prescription.doctorId===currentUser.id);
-      const prescriptionPatientNames = filteredPrescriptions.map((prescription) => ({
+import React from "react";
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+export default function Treatment() {
+  const patients = useSelector((state) => state.patients.patients);
+  const prescriptions = useSelector((state) => state.diagnosises.diagnosises);
+
+  const [showModal, setShowModal] = useState(false);
+  const [doctorPrescriptions, setDoctorPrescriptions] = useState([]);
+
+  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const [filteredDiagnosisesWithName, setFilteredDiagnosisesWithName] =
+    useState([]);
+  // const getPatientName = (patientId) => {
+  //   const patient = patients.find((p) => p.id=== patientId)
+  //   return patient? `${patient.firstName} ${patient.lastName}` : '';
+  // };
+  const getPatientName = (patientId) => {
+    const patient = patients.find((p) => p.id == patientId);
+    return patient ? `${patient.firstName} ${patient.lastName}` : "";
+  };
+
+  const getGender = (patientId) => {
+    const patient = patients.find((p) => p.id == patientId);
+    // console.log("the gender of this patient is",patient.gender)
+    // console.log("tha name of this patient is",patient.firstName)
+    return patient ? patient.gender : "";
+  };
+  const getContact = (patientId) => {
+    const patient = patients.find((p) => p.id == patientId);
+    return patient ? patient.contact : "";
+  };
+
+  useEffect(() => {
+    const filteredPrescriptions = prescriptions.filter(
+      (prescription) => prescription.doctorId == currentUser.id
+    );
+    const prescriptionPatientNames = filteredPrescriptions.map(
+      (prescription) => ({
         ...prescription,
         patientName: getPatientName(prescription.patientId),
         gender: getGender(prescription.patientId),
-        contact: getContact(prescription.patientId)
-      }));
-      setDoctorPrescriptions(prescriptionPatientNames);
-    }, []);
+        contact: getContact(prescription.patientId),
+      })
+    );
+    setDoctorPrescriptions(prescriptionPatientNames);
+  }, []);
   return (
-  <div className="mx-4 mt-4">
-        <div className="flex flex-col items-end mb-10">
-          {/* <form className="flex items-center w-full">
+    <div className="mx-4 mt-4">
+      <div className="flex flex-col items-end mb-10">
+        {/* <form className="flex items-center w-full">
             <label for="voice-search" className="sr-only">
               Search
             </label>
@@ -92,33 +96,33 @@ export default function Treatment(){
               Search
             </button>
           </form> */}
-          <div className="w-full rounded-lg shadow-xs">
-            <h1 className="px-2 py-4 font-mono text-xl font-bold tracking-widest text-center text-gray-700 ">
-              Your prescriptions
-            </h1>
-            <div className="w-full overflow-visible">
-              <table className="w-full sm:w-full">
-                <thead>
-                  <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                    <th className="px-4 py-3">Patient Full Name</th>
-                    <th className="px-4 py-3">Disese</th>
-                    <th className="px-4 py-3">Dosage</th>                     
-                    <th className="px-4 py-3">Date</th>
-                    <th className="px-4 py-3">price</th>
-                    <th className="px-4 py-3">status</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                  {
-                    doctorPrescriptions&& doctorPrescriptions.map((item, index) => (
-                      <tr
-                        key={index}
-                        className="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400"
-                      >
-                        <td className="px-4 py-3">
-                          <div className="flex items-center text-sm">
-                            {/* <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+        <div className="w-full rounded-lg shadow-xs">
+          <h1 className="px-2 py-4 font-mono text-xl font-bold tracking-widest text-center text-gray-700 ">
+            Your prescriptions
+          </h1>
+          <div className="w-full overflow-visible">
+            <table className="w-full sm:w-full">
+              <thead>
+                <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                  <th className="px-4 py-3">Patient Full Name</th>
+                  <th className="px-4 py-3">Disese</th>
+                  <th className="px-4 py-3">Dosage</th>
+                  <th className="px-4 py-3">Date</th>
+                  <th className="px-4 py-3">price</th>
+                  <th className="px-4 py-3">status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                {doctorPrescriptions &&
+                  doctorPrescriptions.map((item, index) => (
+                    <tr
+                      key={index}
+                      className="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400"
+                    >
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/* <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                               <img
                                 className="object-cover w-full h-full rounded-full"
                                 src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
@@ -130,32 +134,32 @@ export default function Treatment(){
                                 aria-hidden="true"
                               ></div>
                             </div> */}
-                            <div>
-                              <p className="font-semibold">
-                                {item.patientName}
-                              </p>
-                            </div>
+                          <div>
+                            <p className="font-semibold">{item.patientName}</p>
                           </div>
-                        </td>
+                        </div>
+                      </td>
 
-                        <td className="px-4 py-3 text-sm">{item.disease}</td>
-                        <td className="px-4 py-3 text-sm">{item.dosage}</td>
-                        <td className="px-4 py-3 text-sm">{item.date}</td>
-                        <td className="px-4 py-3 text-sm">{item.price}</td>
-                        <td className="px-4 py-3 text-sm">
-                       {item.status=="paid"? (
-                        <><div className="text-center text-white bg-green-600 rounded ">
-                        {item.status}
-                      </div></>
-                           ) : (
-                         <>
-                      <div className="text-center text-white bg-red-600 rounded ">
-                         {item.status}
-                      </div>
-                        </>
-                    )} 
-                       </td>               
-                        {/* <td className="px-2 py-3">
+                      <td className="px-4 py-3 text-sm">{item.disease}</td>
+                      <td className="px-4 py-3 text-sm">{item.dosage}</td>
+                      <td className="px-4 py-3 text-sm">{item.date}</td>
+                      <td className="px-4 py-3 text-sm">{item.price}</td>
+                      <td className="px-4 py-3 text-sm">
+                        {item.status == "paid" ? (
+                          <>
+                            <div className="text-center text-white bg-green-600 rounded ">
+                              {item.status}
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="text-center text-white bg-red-600 rounded ">
+                              {item.status}
+                            </div>
+                          </>
+                        )}
+                      </td>
+                      {/* <td className="px-2 py-3">
                           <div className="inline-flex items-center space-x-3">
                             <div className="flex-shrink-0">
                               <button
@@ -191,15 +195,13 @@ export default function Treatment(){
                        </td>
                           </div>
                         </td> */}
-
-
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            </div>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
           </div>
+        </div>
       </div>
-   </div>
-)
+    </div>
+  );
 }

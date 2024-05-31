@@ -1,6 +1,7 @@
 import { useState } from "react";
+import axios from "axios";
 
-const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
+const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
   const [firstName, setFirstName] = useState(patientInfo.firstName);
   const [lastName, setLastName] = useState(patientInfo.lastName);
   const [username, setUserName] = useState(patientInfo.username);
@@ -10,11 +11,11 @@ const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
   const [state, setStateT] = useState(patientInfo.state);
   const [wereda, setWereda] = useState(patientInfo.wereda);
   const [kebele, setKebele] = useState(patientInfo.kebele);
-   
-  
-  const newpatientInfo={
-    
-    ...patientInfo,  
+  const [selectedImage, setSelectedImage] = useState(patientInfo.photo);
+  const [imagePreview, setImagePreview] = useState(patientInfo.photo);
+
+  const newpatientInfo = {
+    ...patientInfo,
     firstName,
     lastName,
     username,
@@ -24,14 +25,41 @@ const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
     state,
     wereda,
     kebele,
+    photo: selectedImage,
+  };
 
-  }
+  const handleImageChange = async (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(file);
+    const reader = new FileReader();
+    reader.onload = () => {
+      console.log("");
+      setImagePreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+
+    // Create a FormData object to send the file
+    const formData = new FormData();
+    console.log("form data", file);
+    formData.append("image", file); // 'image' should match the field name expected by the server
+
+    await axios
+      .post("http://localhost:5000/upload", formData)
+      .then((response) => {
+        console.log(response.data);
+        setSelectedImage(response.data.filename);
+        console.log("patinet to be updated", newpatientInfo);
+      })
+      .catch((error) => {
+        console.log("error in uploading image", error);
+      });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(newpatientInfo);
   };
-  
+
   const addressAssignment = (e) => {
     const temp = e.split(",", 3);
     setStateT(temp[0]);
@@ -40,8 +68,10 @@ const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
   };
 
   return (
-    <div className="mx-auto-xl max-w-l">
-      <h2 className="mb-6 text-2xl font-bold">Edit Personal Information</h2>
+    <div className="mx-auto-xl max-w-l pb-4">
+      <h2 className="mb-6 text-2xl font-bold py-6 ">
+        Edit Personal Information
+      </h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label
@@ -75,7 +105,7 @@ const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
             required
           />
         </div>
-         
+
         <div className="mb-4">
           <label
             htmlFor="lastName"
@@ -92,7 +122,7 @@ const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
             required
           />
         </div>
-        
+
         <div className="mb-4">
           <label
             htmlFor="password"
@@ -101,7 +131,7 @@ const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
             password
           </label>
           <input
-            type="text"
+            type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -109,7 +139,7 @@ const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
             required
           />
         </div>
-        
+
         <div className="mb-4">
           <label htmlFor="email" className="block mb-2 font-bold text-gray-700">
             Email
@@ -153,6 +183,45 @@ const EditPatientInfo = ({ onClose,patientInfo, onSubmit }) =>{
             className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             required
           />
+        </div>
+        <div className="w-64 pt-8 mx-auto">
+          <img
+            className="p-2 mx-auto mt-12 border rounded-lg h-52 w-52 md:mt-0"
+            src={imagePreview}
+            alt="step"
+          />
+          <div className="m-4">
+            <div className="flex items-center justify-center w-full">
+              <label className="flex flex-col w-full border-4 border-gray-200 border-dashed cursor-pointer h-14 hover:border-gray-300 hover:bg-gray-100">
+                <div className="flex items-center justify-center mt-4 space-x-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6 text-gray-400"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                    />
+                  </svg>
+
+                  <p className="text-sm tracking-wider text-gray-400 font-laonoto group-hover:text-gray-600">
+                    Choose Profile Picture
+                  </p>
+                </div>
+                <input
+                  type="file"
+                  className="opacity-0"
+                  value=""
+                  onChange={handleImageChange}
+                />
+              </label>
+            </div>
+          </div>
         </div>
         <div className="flex justify-between">
           <button

@@ -13,9 +13,9 @@ export default function DashbordContent(props) {
       <main>
         <div className="px-4 pt-6">
           <div className="grid grid-cols-1 my-4  xl:gap-4">
-            <div className="h-full p-4 mb-4 bg-white rounded-lg shadow sm:p-6">
+            <div className="h-full py-4 mb-4  rounded-lg shadow sm:p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold leading-none text-gray-900">
+                <h3 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
                   New Registered Patients{" "}
                 </h3>
                 {/* <a
@@ -28,12 +28,12 @@ export default function DashbordContent(props) {
 
               {/* new patient component */}
 
-              <div className="mx-4 mt-4 whitespace-nowrap">
+              <div className="mt-4 whitespace-nowrap">
                 <div className="w-full overflow-hidden rounded-lg shadow-xs">
                   <div className="w-full overflow-x-auto">
                     <table className="w-full">
                       <thead>
-                        <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                        <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-white dark:bg-gray-600">
                           <th className="px-4 py-3">Patient Full Name</th>
                           <th className="px-4 py-3">Gender</th>
                           <th className="px-4 py-3">Age</th>

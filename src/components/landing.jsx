@@ -10,9 +10,9 @@ export default function Landing() {
             fontFamily: "Righteous",
           }}
         >
-         <span
+          <span
             id="blackOverlay"
-            className="absolute w-full h-full bg-blue-600 opacity-60"
+            className="absolute w-full h-full bg-blue-600 opacity-0"
           ></span>
         </div>
         <div className="container relative mx-auto">

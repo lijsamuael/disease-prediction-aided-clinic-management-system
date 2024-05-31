@@ -3,7 +3,7 @@ import { Outele, Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 export default function LabDoctorDashbord(props) {
-  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const currentUser = useSelector((state) => state.currentUser.Laboratorist);
   const [numberIssued, setNumberIssued] = useState(0);
   const [numberConfirmed, setNumberConfirmed] = useState(0);
 

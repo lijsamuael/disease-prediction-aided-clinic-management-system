@@ -129,8 +129,8 @@ export default function DoctorContent(props) {
             </button>
           </form>
 
-          <div className="w-full rounded-lg shadow-xs">
-            <h1 className="px-2 py-4 font-mono text-xl font-bold tracking-widest text-center text-gray-700 ">
+          <div className="w-full rounded-lg shadow-xs pt-4">
+            <h1 className="px-2 py-4 font-mono text-xl font-bold tracking-widest  text-gray-700 dark:text-white ">
               Your New Appointments
             </h1>
             <div className="w-full overflow-visible">
@@ -188,7 +188,7 @@ export default function DoctorContent(props) {
                                 onClick={handleShow}
                                 className="p-2 text-sm font-medium text-white rounded-lg bg-primary hover:bg-blue-700"
                               >
-                                Send Lab Test
+                                Send Test Cases For Lab
                               </button>
                               <PrescriptionModal
                                 showModal={showModal}
@@ -207,12 +207,12 @@ export default function DoctorContent(props) {
                               >
                                 Prescribe
                               </button> */}
-                                    <Link
+                                    {/* <Link
                                       to={`/doctor/dgs/${item.patientId}`}
                                       className="p-2 text-sm font-medium text-white bg-green-500 rounded-lg hover:bg-green-600"
                                     >
                                       Prescribe
-                                    </Link>
+                                    </Link> */}
                                   </div>
                                 </div>
                               </div>

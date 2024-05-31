@@ -2,20 +2,43 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentUser } from "../../redux/currentUser";
+import {
+  setCurrentUser,
+  setCurrentAdmin,
+  setCurrentDoctor,
+  setCurrentFinance,
+  setCurrentLaboratorist,
+  setCurrentPatient,
+} from "../../redux/currentUser";
 export default function SingIn() {
   const [responseData, setResponseData] = useState(null);
   const navigate = useNavigate(); // Create a history object
   const [errorMessage, setErrorMessage] = useState("");
   const dispatch = useDispatch();
   const [user, setUser] = useState("");
-  const currentuser = useSelector((state) => state.currentUser.currentUser);
+
+  // const currentuser = useSelector((state) => state.currentUser.currentUser);
+
+  // const currentPatient = useSelector(
+  //   (state) => state.currentPatient.currentPatient
+  // );
+  // const currentDoctor = useSelector(
+  //   (state) => state.currentDoctor.currentDoctor
+  // );
+  // const currentLaboratorist = useSelector(
+  //   (state) => state.currentLaboratorist.currentLaboratorist
+  // );
+  // const currentAdmin = useSelector((state) => state.currentAdmin.currentAdmin);
+  // const currentFinance = useSelector(
+  //   (state) => state.currentFinance.currentFinance
+  // );
+
   useEffect(() => {
-    localStorage.setItem("labToken", null);
-    localStorage.setItem("adminToken", null);
-    localStorage.setItem("doctorToken", null);
-    localStorage.setItem("patientToken", null);
-    localStorage.setItem("fainanceToken", null);
+    // localStorage.setItem("labToken", null);
+    // localStorage.setItem("adminToken", null);
+    // localStorage.setItem("doctorToken", null);
+    // localStorage.setItem("patientToken", null);
+    // localStorage.setItem("fainanceToken", null);
     if (responseData) {
       dispatch(setCurrentUser(responseData.user));
       // console.log("the logged user id is",responseData.id)
@@ -26,6 +49,7 @@ export default function SingIn() {
       if (responseData.isLogIn) {
         navigate("/adminDashbord");
         localStorage.setItem("adminToken", responseData.token);
+        dispatch(setCurrentAdmin(responseData.user));
       } else {
         console.log("Invalid username or password");
         setErrorMessage("Invalid username or password ");
@@ -35,6 +59,7 @@ export default function SingIn() {
       if (responseData.isLogIn) {
         navigate("/doctor");
         localStorage.setItem("doctorToken", responseData.token);
+        dispatch(setCurrentDoctor(responseData.user));
       } else {
         console.log("Invalid username or password");
         setErrorMessage("Invalid username or password ");
@@ -44,6 +69,7 @@ export default function SingIn() {
       if (responseData.isLogIn) {
         navigate("/finance");
         localStorage.setItem("financeToken", responseData.token);
+        dispatch(setCurrentFinance(responseData.user));
       } else {
         console.log("Invalid username or password");
         setErrorMessage("Invalid username or password ");
@@ -53,6 +79,7 @@ export default function SingIn() {
       if (responseData.isLogIn) {
         navigate("/lab");
         localStorage.setItem("labToken", responseData.token);
+        dispatch(setCurrentLaboratorist(responseData.user));
       } else {
         console.log("Invalid username or password");
         setErrorMessage("Invalid username or password ");
@@ -62,6 +89,7 @@ export default function SingIn() {
       if (responseData.isLogIn) {
         navigate(`/patient/${responseData.id}`);
         localStorage.setItem("patientToken", responseData.token);
+        dispatch(setCurrentPatient(responseData.user));
       } else {
         console.log("Invalid username or password");
         setErrorMessage("Invalid username or password ");
@@ -75,12 +103,14 @@ export default function SingIn() {
     username: "",
     password: "",
   });
+
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

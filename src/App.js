@@ -39,10 +39,15 @@ import Treatment from "./components/doctor/treatment";
 import SendToLabratory from "./components/doctor/sendToLabratory";
 import ProtectedRoute from "./protectedRoute";
 export default function App() {
+  localStorage.getItem("labToken");
+  localStorage.getItem("adminToken");
+  localStorage.getItem("doctorToken");
+  localStorage.getItem("patientToken");
+  localStorage.getItem("fainanceToken");
+
   return (
     <>
       <Routes>
-        {/* <Route path="/" index element={<ImageUpload />} /> */}
         <Route path="/" index element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login" element={<Login />} />
@@ -51,38 +56,49 @@ export default function App() {
         <Route path="/paymentSuccess" element={<PaymentSuccess />} />
         <Route path="/incorrectPassword" element={<PasswordError />} />
 
-        <Route path="/doctor" element={<DoctorDashbord />}>
-          <Route path="" element={<DoctorContent />} />
-          <Route
-            path="prescriptionDetail/:id"
-            element={<PrescriptionDetail />}
-          />
-          <Route path="labratory" element={<ResponseLabratoryComponent />} />
-          <Route path="prescription" element={<SendToLabratory />} />
-          <Route
-            path="prescription/:prescriptionId"
-            index
-            element={<DoctorPrescription />}
-          ></Route>
-          <Route path="appointment" element={<DoctorAppointmentComponent />} />
-          <Route path="dgs/:patientId" element={<Diagnosis />} />
-          <Route path="treatment" element={<Treatment />} />
+        <Route element={<ProtectedRoute tokenKey="doctorToken" />}>
+          <Route path="/doctor" element={<DoctorDashbord />}>
+            <Route path="" element={<DoctorContent />} />
+            <Route
+              path="prescriptionDetail/:id"
+              element={<PrescriptionDetail />}
+            />
+            <Route path="labratory" element={<ResponseLabratoryComponent />} />
+            <Route path="prescription" element={<SendToLabratory />} />
+            <Route
+              path="prescription/:prescriptionId"
+              index
+              element={<DoctorPrescription />}
+            ></Route>
+            <Route
+              path="appointment"
+              element={<DoctorAppointmentComponent />}
+            />
+            <Route path="dgs/:patientId" element={<Diagnosis />} />
+            <Route path="treatment" element={<Treatment />} />
+          </Route>
         </Route>
-        <Route path="/lab" element={<LabDoctorDashbord />}>
-          <Route path="" element={<LabRequest />} />
-          <Route
-            path="prescription"
-            element={<DoctorPrescriptionComponent />}
-          />
-          <Route
-            path="prescription/:laboratoryId/:prescriptionId"
-            index
-            element={<LaboratoryPrescription />}
-          ></Route>
-          <Route path="prescriptions/:id" element={<LabResult />} />
+
+        <Route element={<ProtectedRoute tokenKey="labToken" />}>
+          <Route path="/lab" element={<LabDoctorDashbord />}>
+            <Route path="" element={<LabRequest />} />
+            <Route
+              path="prescription"
+              element={<DoctorPrescriptionComponent />}
+            />
+            <Route
+              path="prescription/:laboratoryId/:prescriptionId"
+              index
+              element={<LaboratoryPrescription />}
+            ></Route>
+            <Route path="prescriptions/:id" element={<LabResult />} />
+          </Route>
         </Route>
-        <Route path="/finance" element={<FinanceDashbord />}>
-          <Route path="" element={<FinanceContent />} />
+
+        <Route element={<ProtectedRoute tokenKey="financeToken" />}>
+          <Route path="/finance" element={<FinanceDashbord />}>
+            <Route path="" element={<FinanceContent />} />
+          </Route>
         </Route>
         <Route path="/signIn" element={<Login />}>
           <Route path="" element={<SingIn />} />
@@ -90,7 +106,6 @@ export default function App() {
           {/* <Route path="forgetPassword" element={<ForgetPassword />} /> */}
           <Route path="payment" element={<Payment />} />
         </Route>
-        {/* <Route path="/doctor" element={<DoctorComponent />} /> */}
         <Route path="/patient" element={<PatientHome />} />
         <Route path="/patient/:id" element={<PatientProfile />} />
 

@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-const ProtectedRoute = ({ tokenKey, redirectPath = "/login", children }) => {
+const ProtectedRoute = ({ tokenKey, redirectPath = "/signin", children }) => {
   const token = localStorage.getItem(tokenKey);
 
-  if (token == null) {
+  if (token == "null") {
     return <Navigate to={redirectPath} replace />;
   }
 
