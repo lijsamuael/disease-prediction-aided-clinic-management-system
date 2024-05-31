@@ -42,7 +42,7 @@ export default function FinanceDashbord(props) {
                   Finance
                 </p>
                 <span className="text-xs text-slate-400">
-                  {currentUser.username}
+                  {/* {currentUser.username} */}
                 </span>
               </div>
             </div>

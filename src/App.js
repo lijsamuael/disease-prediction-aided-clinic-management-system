@@ -39,6 +39,7 @@ import Treatment from "./components/doctor/treatment";
 import SendToLabratory from "./components/doctor/sendToLabratory";
 import ProtectedRoute from "./protectedRoute";
 import PrescriptionModal from "./components/doctor/prescriptionModal";
+import Emergency from "./views/emergency/emergency";
 export default function App() {
   localStorage.getItem("labToken");
   localStorage.getItem("adminToken");
@@ -50,6 +51,7 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" index element={<Home />} />
+        <Route path="/emergency" index element={<Emergency />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login" element={<Login />} />
 

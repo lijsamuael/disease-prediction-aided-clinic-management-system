@@ -9,7 +9,7 @@ import Chatbot from "../../components/chatbot";
 export default function Home() {
   return (
     <div
-      className="overflow-x-hidden bg-fixed bg-cover font-mono"
+      className="overflow-x-hidden bg-fixed bg-cover "
       // style={{ fontFamily: "Righteous" }}
       style={{ backgroundImage: "url(/images/bg3.png)" }}
     >
@@ -18,14 +18,14 @@ export default function Home() {
           <a href="/" className="flex items-center">
             <img
               src="/icons/logo.png"
-              className="mr-3 rounded-full-6 h-9"
+              className="mr-3 rounded-full-6 h-9 bg-gray-700"
               alt="Logo"
             />
             <span
               className="self-center text-xl font-bold tracking-widest text-gray-500 whitespace-nowrap dark:text-white"
               style={{ fontFamily: "Righteous" }}
             >
-              KIDANE MIHRET CLINIC
+              MediConnect
             </span>
           </a>
           <div className="flex items-center lg:order-2">
@@ -110,12 +110,12 @@ export default function Home() {
                 ></path>
               </svg>
             </a>
-            <a
-              href="/"
+            <Link
+              to="/emergency"
               className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 duration-700 border border-gray-300 rounded-lg hover:scale-105 hover:shadow-lg hover:shadow-gray-600 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
             >
               Report for Emergency
-            </a>
+            </Link>
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img src="/images/5.png" alt="mockup" />

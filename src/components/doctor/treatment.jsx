@@ -8,7 +8,7 @@ export default function Treatment() {
   const [showModal, setShowModal] = useState(false);
   const [doctorPrescriptions, setDoctorPrescriptions] = useState([]);
 
-  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const currentUser = useSelector((state) => state.currentUser.currentDoctor);
   const [filteredDiagnosisesWithName, setFilteredDiagnosisesWithName] =
     useState([]);
   // const getPatientName = (patientId) => {
