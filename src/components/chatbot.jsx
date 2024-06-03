@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DiseasePrediction from "./diseasePrediction";
+import { Link } from "react-router-dom";
 
 const Chatbot = () => {
   const [expanded, setExpanded] = useState(false);
@@ -13,29 +14,15 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <div
-        className={` text-white cursor-pointer ${
-          expanded ? "w-[1200px] h-[800px] " : "w-16"
-        }`}
-      >
-        {expanded ? (
-          <>
-            <p onClick={closeExpand}>Close</p>
-            <div className="mb-24">
-              <DiseasePrediction />
-            </div>
-          </>
-        ) : (
-          <img
-            onClick={toggleExpand}
-            width={50}
-            src="public/images/chatbot.png"
-            alt="chat bot"
-          />
-        )}
-      </div>
-    </div>
+    <Link to="/diseasePrediction" className="fixed bottom-4 right-4 z-50">
+      <img
+        onClick={toggleExpand}
+        className="bg-blue-200 p-1 rounded-full hover:scale-110 duration-500 animate-bounce"
+        width={70}
+        src="/images/chatbot.png"
+        alt="chat bot"
+      />
+    </Link>
   );
 };
 

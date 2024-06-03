@@ -215,10 +215,10 @@ export default function PatientProfile() {
               </button>
             </div>
           </div>
-          <div className="w-full h-[250px] relative">
+          <div className="w-full h-[250px] relative bg-gray-800">
             <img
               alt=""
-              src="/images/profile-background.jpg"
+              src="/logos/logo1.png"
               className="w-full h-full rounded-tl-lg  rounded-tr-lg"
             />
 
@@ -250,7 +250,9 @@ export default function PatientProfile() {
             <div className=" h-40 bg-slate-200 w-40 border-4 border-white rounded-full z-10">
               <img
                 alt=""
-                src={`${process.env.REACT_APP_API_URL}/${data.photo}`}
+                src={
+                  data.photo && `${process.env.REACT_APP_API_URL}/${data.photo}`
+                }
                 className="w-40 h-40 rounded-full"
               />
             </div>

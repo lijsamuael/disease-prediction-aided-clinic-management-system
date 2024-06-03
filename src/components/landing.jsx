@@ -3,10 +3,10 @@ export default function Landing() {
   return (
     <section className="relative bg-blueGray-50 ">
       <div className="relative  pb-32 flex content-center items-center justify-center min-h-[80vh] pt-32 ">
-        <div
+        {/* <div
           className="absolute top-0 w-full h-screen bg-fixed bg-center bg-cover"
           style={{
-            backgroundImage: "url(/images/bg3.png)",
+            backgroundImage: "url(/images/b  g3.png)",
             fontFamily: "Righteous",
           }}
         >
@@ -14,16 +14,21 @@ export default function Landing() {
             id="blackOverlay"
             className="absolute w-full h-full bg-blue-600 opacity-0"
           ></span>
-        </div>
+        </div> */}
         <div className="container relative mx-auto">
           <div className="flex flex-wrap items-center">
             <div className="w-full px-4 ml-auto mr-auto text-center lg:w-6/12">
               <div
-                className="pr-12"
+                className="pr-12  flex flex-col justify-center items-center"
                 style={{
                   fontFamily: "Righteous",
                 }}
               >
+                <img
+                  src="/logos/logo1.png"
+                  className="mr-3 rounded-full-6 h-48  "
+                  alt="Logo"
+                />
                 <h1 className="text-5xl font-semibold text-white">
                   Welcome to our clinic managment system.
                 </h1>

@@ -9,7 +9,7 @@ import Chatbot from "../../components/chatbot";
 export default function Home() {
   return (
     <div
-      className="overflow-x-hidden bg-fixed bg-cover "
+      className="overflow-x-hidden bg-fixed bg-cover bg-gray-900"
       // style={{ fontFamily: "Righteous" }}
       style={{ backgroundImage: "url(/images/bg3.png)" }}
     >
@@ -17,16 +17,16 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto ">
           <a href="/" className="flex items-center">
             <img
-              src="/icons/logo.png"
-              className="mr-3 rounded-full-6 h-9 bg-gray-700"
+              src="/logos/logo1.png"
+              className="mr-3 rounded-full-6 h-16 "
               alt="Logo"
             />
-            <span
+            {/* <span
               className="self-center text-xl font-bold tracking-widest text-gray-500 whitespace-nowrap dark:text-white"
               style={{ fontFamily: "Righteous" }}
             >
               MediConnect
-            </span>
+            </span> */}
           </a>
           <div className="flex items-center lg:order-2">
             <Link
