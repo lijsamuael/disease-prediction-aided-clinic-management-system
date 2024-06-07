@@ -129,15 +129,15 @@ export default function SingIn() {
   return (
     <>
       <div
-        className="w-full p-8 bg-white md:flex md:items-center md:justify-center sm:w-auto md:h-full xl:w-2/5 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none"
+        className="w-full p-8 bg-white dark:bg-gray-800 md:flex md:items-center md:justify-center sm:w-auto md:h-full xl:w-2/5 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none"
         style={{ fontFamily: "Poltawski Nowy" }}
       >
         <div className="w-full max-w-md space-y-4">
           <div className="pt-8 text-center">
-            <h2 className="mt-6 text-3xl font-bold text-gray-900 lg:text-4xl">
+            <h2 className="mt-6 text-3xl font-bold text-gray-900 dark:text-white  lg:text-4xl">
               Welcome Back!
             </h2>
-            <p className="mt-2 text-lg text-gray-500 text-semi-bold">
+            <p className="mt-2 text-lg text-gray-500 dark:text-gray-300 text-semi-bold">
               Please sign in to your account
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function SingIn() {
 
             <input type="hidden" name="remember" value="true" />
             <div className="relative">
-              <label className="ml-3 text-sm font-bold tracking-wide text-gray-700">
+              <label className="ml-3 text-sm font-bold tracking-wide text-gray-700 dark:text-gray-200">
                 username
               </label>
               <input
@@ -165,7 +165,7 @@ export default function SingIn() {
               />
             </div>
             <div className="content-center mt-8">
-              <label className="ml-3 text-sm font-bold tracking-wide text-gray-700">
+              <label className="ml-3 text-sm font-bold dark:text-gray-200 tracking-wide text-gray-700">
                 Password
               </label>
               <input
@@ -209,7 +209,7 @@ export default function SingIn() {
                 Sign in
               </button>
             </div>
-            <p className="flex flex-col items-center justify-center mt-10 text-center text-gray-500 text-md">
+            <p className="flex flex-col items-center dark:text-gray-200 justify-center mt-10 text-center text-gray-500 text-md">
               <span>Don't have an account?</span>
               <Link
                 to="/signIn/signUp"

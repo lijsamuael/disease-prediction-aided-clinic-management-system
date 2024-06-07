@@ -2,15 +2,13 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import data from "../../models/data.json";
 
-
-
 export default function LogIn() {
   const [info, setInfo] = useState();
   const [activeButton, setActiveButton] = useState(null);
   const handleButtonClick = (button) => {
     setActiveButton(button);
   };
-  
+
   return (
     <div className="relative flex min-h-screen ">
       <div className="flex flex-col items-center flex-auto min-w-0 bg-white sm:flex-row md:items-start sm:justify-center md:justify-start">
@@ -44,9 +42,8 @@ export default function LogIn() {
 }
 
 export function Form({ user }) {
-
   return (
-    <form  className="py-8 mt-8 space-y-6" action="#" method="POST">
+    <form className="py-8 mt-8 space-y-6" action="#" method="POST">
       <input type="hidden" name="remember" value="true" />
       {data.user.map((item, index) => (
         <div className="relative">

@@ -17,7 +17,7 @@ const Chatbot = () => {
     <Link to="/diseasePrediction" className="fixed bottom-4 right-4 z-50">
       <img
         onClick={toggleExpand}
-        className="bg-blue-200 p-1 rounded-full hover:scale-110 duration-500 animate-bounce"
+        className="bg-orange-300 p-1 rounded-full hover:scale-110 duration-500 animate-bounce"
         width={70}
         src="/images/chatbot.png"
         alt="chat bot"

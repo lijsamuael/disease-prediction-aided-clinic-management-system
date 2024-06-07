@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Eye Care",
+    "description": "Comprehensive eye examinations and treatments for various eye conditions.",
+    "icon": "/svgs/eye-svgrepo-com.svg"
+  },
+  {
+    "title": "Dental Care",
+    "description": "Complete dental services including cleanings, fillings, and orthodontics.",
+    "icon": "/svgs/odontology-svgrepo-com.svg"
+  },
+  {
+    "title": "Cardiology",
+    "description": "Heart health services including EKGs, stress tests, and cardiac consultations.",
+    "icon": "/svgs/heart-care-svgrepo-com.svg"
+  },
+  {
+    "title": "Pediatrics",
+    "description": "Medical care for infants, children, and adolescents.",
+    "icon": "/svgs/i-pediatrics-svgrepo-com.svg"
+  },
+  {
+    "title": "Physiotherapy",
+    "description": "Therapeutic exercises and treatments to restore movement and function.",
+    "icon": "/svgs/chiropractic-physiotherapy-svgrepo-com.svg"
+  },
+  {
+    "title": "Dermatology",
+    "description": "Treatment for skin, hair, and nail conditions.",
+    "icon": "/svgs/i-dermatology-svgrepo-com.svg"
+  },
+  {
+    "title": "Radiology",
+    "description": "Diagnostic imaging services including X-rays, CT scans, and MRIs.",
+    "icon": "/svgs/i-radiology-svgrepo-com.svg"
+  },
+  {
+    "title": "Diet",
+    "description": "Treatment for digestive system disorders.",
+    "icon": "/svgs/human-stomach-digestion-diagram-2-svgrepo-com.svg"
+  }
+]
