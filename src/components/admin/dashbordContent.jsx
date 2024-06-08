@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useSelector, useDispatch } from "react-redux";
-import DiseaseComponent from "./diseaseComponent";
 import { Link } from "react-router-dom";
-import EventComponent from "./eventComponent";
+import DoughnutChart from "../donutChart";
+import BarChart from "../barChart";
+import LineChart from "../lineChart";
 export default function DashbordContent(props) {
   const [emergencies, setEmergencies] = useState([]);
+  const prescriptions = useSelector(
+    (state) => state.prescriptions.prescriptions
+  );
+  const appointments = useSelector((state) => state.appointments.appointments);
+  const diagnosises = useSelector((state) => state.diagnosises.diagnosises);
 
   const patients = useSelector((state) =>
     state.patients.patients.filter((patient) => patient.isNew == "yes")
@@ -22,6 +28,13 @@ export default function DashbordContent(props) {
     }
   };
 
+  const data = [
+    { label: "Emergencies", count: emergencies.length },
+    { label: "Appointments", count: appointments.length },
+    { label: "Diagnosises", count: diagnosises.length },
+    { label: "Prescriptions", count: prescriptions.length },
+  ];
+
   useEffect(() => {
     fetchEmergencies();
   }, []);
@@ -29,6 +42,11 @@ export default function DashbordContent(props) {
   return (
     <>
       <main>
+        <div className="w-full text-black dark:text-white flex justify-center">
+          <LineChart data={data} />
+
+          <BarChart data={data} />
+        </div>
         <div className="px-4 pt-6">
           <div className="grid grid-cols-1 my-4  xl:gap-4">
             <div className="h-full py-4 mb-4  rounded-lg shadow sm:p-6">

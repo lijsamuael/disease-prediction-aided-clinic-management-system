@@ -134,12 +134,13 @@ export default function PatientProfile() {
             <div class="bg-white h-screen dark:bg-gray-700 shadow rounded-lg p-6">
               <div class="flex flex-col items-center">
                 <img
+                  alt="profile"
                   src={
                     data.photo &&
                     `${process.env.REACT_APP_API_URL}/${data.photo}`
                   }
                   class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
-                ></img>
+                />
                 <h1 class="text-xl font-bold whitespace-nowrap">
                   {data.firstName} {data.lastName}
                 </h1>
@@ -147,16 +148,6 @@ export default function PatientProfile() {
                   x-data="{ openSettings: false }"
                   className="mt-4 rounded flex justify-between items-center"
                 >
-                  {/* <div className="w-full h-[250px] relative bg-gray-800">
-                      <img
-                        alt=""
-                        src="/logos/logo1.png"
-                        className="w-full h-full rounded-tl-lg  rounded-tr-lg"
-                      />
-
-
-                    </div> */}
-
                   <div className="flex flex-col items-center justify-end flex-1 px-8 mt-2 lg:items-end">
                     <div className="flex items-center mt-2 space-x-4">
                       <button className="flex items-center px-4 py-2 space-x-2 text-sm text-gray-100 transition duration-100 bg-blue-600 rounded hover:bg-blue-700">
