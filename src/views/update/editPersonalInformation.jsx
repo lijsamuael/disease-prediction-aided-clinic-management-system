@@ -68,7 +68,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
   };
 
   return (
-    <div className="mx-auto-xl max-w-l pb-4">
+    <div className="mx-auto-xl max-w-l pb-4 ">
       <h2 className="mb-6 text-2xl font-bold py-6 ">
         Edit Personal Information
       </h2>
@@ -76,7 +76,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
         <div className="mb-4">
           <label
             htmlFor="firstName"
-            className="block mb-2 font-bold text-gray-700"
+            className="block mb-2 font-bold text-gray-700 dark:text-white"
           >
             First Name
           </label>
@@ -85,14 +85,14 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
             id="firstName"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-gray-700  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="lastName"
-            className="block mb-2 font-bold text-gray-700"
+            className="block mb-2 font-bold text-gray-700 dark:text-white"
           >
             Last Name
           </label>
@@ -101,7 +101,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
             id="lastName"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-gray-700  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             required
           />
         </div>
@@ -109,7 +109,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
         <div className="mb-4">
           <label
             htmlFor="lastName"
-            className="block mb-2 font-bold text-gray-700"
+            className="block mb-2 font-bold text-gray-700 dark:text-white"
           >
             username
           </label>
@@ -118,7 +118,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
             id="username"
             value={username}
             onChange={(e) => setUserName(e.target.value)}
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-gray-700  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             required
           />
         </div>
@@ -126,7 +126,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
         <div className="mb-4">
           <label
             htmlFor="password"
-            className="block mb-2 font-bold text-gray-700"
+            className="block mb-2 font-bold text-gray-700 dark:text-white"
           >
             password
           </label>
@@ -135,13 +135,16 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-gray-700  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             required
           />
         </div>
 
         <div className="mb-4">
-          <label htmlFor="email" className="block mb-2 font-bold text-gray-700">
+          <label
+            htmlFor="email"
+            className="block mb-2 font-bold text-gray-700 dark:text-white"
+          >
             Email
           </label>
           <input
@@ -149,14 +152,14 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-gray-700  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="contact"
-            className="block mb-2 font-bold text-gray-700"
+            className="block mb-2 font-bold text-gray-700 dark:text-white"
           >
             Phone Number
           </label>
@@ -172,7 +175,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
         <div className="mb-4">
           <label
             htmlFor="address"
-            className="block mb-2 font-bold text-gray-700"
+            className="block mb-2 font-bold text-gray-700 dark:text-white"
           >
             Address
           </label>
@@ -180,7 +183,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
             id="address"
             value={`${state}, ${wereda}, ${kebele}`}
             onChange={(e) => addressAssignment(e.target.value)}
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-gray-700  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             required
           />
         </div>
@@ -209,7 +212,7 @@ const EditPatientInfo = ({ onClose, patientInfo, onSubmit }) => {
                     />
                   </svg>
 
-                  <p className="text-sm tracking-wider text-gray-400 font-laonoto group-hover:text-gray-600">
+                  <p className="text-sm tracking-wider text-gray-400 dark:text-white font-laonoto group-hover:text-gray-600">
                     Choose Profile Picture
                   </p>
                 </div>
