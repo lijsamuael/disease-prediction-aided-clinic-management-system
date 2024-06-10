@@ -119,8 +119,10 @@ export default function App() {
           {/* <Route path="forgetPassword" element={<ForgetPassword />} /> */}
           <Route path="payment" element={<Payment />} />
         </Route>
-        <Route path="/patient" element={<PatientHome />} />
-        <Route path="/patient/:id" element={<PatientProfile />} />
+        <Route element={<ProtectedRoute tokenKey="patientToken" />}>
+          <Route path="/patient" element={<PatientHome />} />
+          <Route path="/patient/:id" element={<PatientProfile />} />
+        </Route>
 
         <Route element={<ProtectedRoute tokenKey="adminToken" />}>
           <Route path="/adminDashbord/" element={<AdminDashbord />}>

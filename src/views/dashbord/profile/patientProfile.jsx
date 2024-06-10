@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
@@ -13,6 +13,8 @@ export default function PatientProfile() {
   const prescriptions = useSelector(
     (state) => state.prescriptions.prescriptions
   );
+
+  const navigate = useNavigate();
 
   const doctors = useSelector((state) => state.doctors.doctors);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,6 +39,12 @@ export default function PatientProfile() {
     setIsModalOpen(false); // close the modal
 
     window.location.reload();
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("patientToken");
+    navigate("/");
+    console.log("patient logout successfully");
   };
 
   const [appointmentWithName, setAppointmentWithNames] = useState([]);
@@ -117,7 +125,7 @@ export default function PatientProfile() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <h1 className="mb-4 text-3xl font-bold">Loading...</h1>
           <div className="w-8 h-8 border-t-2 border-b-2 border-gray-900 rounded-full animate-spin"></div>
@@ -127,11 +135,11 @@ export default function PatientProfile() {
   }
 
   return (
-    <div class="bg-gray-100 dark:bg-gray-800 dark:text-white h-screen">
+    <div class="bg-gray-100 dark:bg-gray-800 dark:text-white min-h-screen">
       <div class="py-8">
         <div class="grid grid-cols-12 gap-6 px-4">
           <div class="col-span-12   lg:col-span-5 xl:col-span-4">
-            <div class="bg-white h-screen dark:bg-gray-700 shadow rounded-lg p-6">
+            <div class="bg-white min-h-screen dark:bg-gray-700 shadow rounded-lg p-6">
               <div class="flex flex-col items-center">
                 <img
                   alt="profile"
@@ -155,8 +163,8 @@ export default function PatientProfile() {
                       </button>
                     </div>
                   </div>
-                  <Link
-                    to="/"
+                  <button
+                    onClick={handleLogout}
                     className="   flex items-center bg-red-400 hover:bg-red-500 p-2 rounded-md  mt-4"
                   >
                     <span className="inline-flex mr-1">
@@ -176,7 +184,7 @@ export default function PatientProfile() {
                       </svg>
                     </span>
                     Logout
-                  </Link>
+                  </button>
                 </div>
                 <div className="flex-1 p-8  rounded-lg ">
                   <ul className="mt-2 text-gray-700 dark:text-white whitespace-nowrap">
@@ -216,7 +224,7 @@ export default function PatientProfile() {
             </div>
           </div>
           <div class="col-span-12  lg:col-span-7 xl:col-span-8">
-            <div class="bg-white h-screen dark:bg-gray-700 shadow rounded-lg p-6">
+            <div class="bg-white min-h-screen dark:bg-gray-700 shadow rounded-lg p-6">
               <div className="flex-1 p-8 mt-4 bg-white dark:bg-gray-600 rounded-lg shadow-xl lg:col-span-1">
                 <h4 className="text-xl pb-2 font-bold text-gray-900 dark:text-white">
                   Treatment History
@@ -228,7 +236,7 @@ export default function PatientProfile() {
                     <div className="overflow-x-auto">
                       <table className="min-w-full bg-white">
                         <thead>
-                          <tr className="text-white da bg-blue-800 dark:bg-gray-700 dark:text-b">
+                          <tr className="text-white  bg-blue-800 dark:bg-gray-700 dark:text-b">
                             <th className="px-4 py-2">Doctor Name</th>
                             <th className="px-4 py-2">Doctor Contact</th>
                             <th className="px-4 py-2">Description</th>
@@ -241,8 +249,10 @@ export default function PatientProfile() {
                             return (
                               <tr
                                 key={index}
-                                className={`text-center text-white dark:text-gray-800 ${
-                                  index % 2 === 0 ? "bg-gray-100" : "bg-white"
+                                className={`text-center ${
+                                  index % 2 === 0
+                                    ? "bg-gray-100 dark:bg-gray-600"
+                                    : "bg-white dark:bg-gray-500"
                                 }`}
                               >
                                 <td className="px-4 py-2 border">
@@ -257,7 +267,7 @@ export default function PatientProfile() {
                                 <td className="px-4 py-2 border">
                                   {apt.issueDate}
                                 </td>
-                                <td className="px-4 py-3 text-sm">
+                                <td className="px-4 py-3 text-sm border">
                                   {apt.status === "confirmed" ? (
                                     <>
                                       <div className="text-center text-white bg-green-600 py-1 rounded">
@@ -328,7 +338,7 @@ export default function PatientProfile() {
                                 className={`text-center ${
                                   index % 2 === 0
                                     ? "bg-gray-100 dark:bg-gray-600"
-                                    : "bg-white dark:bg-gray-700"
+                                    : "bg-white dark:bg-gray-500"
                                 }`}
                               >
                                 <td className="px-4 py-2 border">

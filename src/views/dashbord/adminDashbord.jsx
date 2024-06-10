@@ -1,9 +1,10 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import SidebarComponent from "../../components/admin/sidebarComponent";
 import { useSelector } from "react-redux";
 export default function AdminDashbord(props) {
+  const navigate = useNavigate();
   const patients = useSelector((state) => state.patients.quantity);
   const doctors = useSelector((state) => state.doctors.quantity);
   const appointments = useSelector((state) => state.appointments.quantity);
@@ -31,6 +32,12 @@ export default function AdminDashbord(props) {
         setTheme(this.isDark);
       },
     };
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    navigate("/");
+    console.log("patient logout successfully");
   };
 
   return (
@@ -113,8 +120,8 @@ export default function AdminDashbord(props) {
                   <div class="block w-px h-6 mx-3 bg-gray-400 dark:bg-gray-700"></div>
                 </li>
                 <li>
-                  <Link
-                    to="/"
+                  <button
+                    onClick={handleLogout}
                     class="flex items-center mr-4 hover:text-blue-100"
                   >
                     <span class="inline-flex mr-1">
@@ -134,7 +141,7 @@ export default function AdminDashbord(props) {
                       </svg>
                     </span>
                     Logout
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
