@@ -12,29 +12,6 @@ export default function LogIn() {
   return (
     <div className="relative flex min-h-screen ">
       <div className="flex flex-col items-center flex-auto min-w-0 bg-white sm:flex-row md:items-start sm:justify-center md:justify-start">
-        <div
-          className="relative items-center justify-center flex-auto hidden h-full p-10 overflow-hidden text-white bg-purple-900 bg-no-repeat bg-cover sm:w-1/2 xl:w-3/5 md:flex"
-          style={{
-            backgroundImage: "url(/images/bg1.jpg)",
-          }}
-        >
-          <div className="absolute inset-0 z-0 bg-gradient-to-b from-indigo-600 to-blue-500 opacity-40"></div>
-          <div
-            className="z-10 w-full max-w-md"
-            style={{ fontFamily: "Righteous" }}
-          >
-            <div className="mb-6 font-bold leading-tight tracking-wide sm:text-4xl xl:text-5xl">
-              Welcome to our Clinic Management System
-            </div>
-            <div
-              className="font-mono font-normal text-white sm:text-sm xl:text-xl"
-              //   style={{ fontFamily: "Josefin Sans" }}
-            >
-              A full ranged clinic management system for Patients, Doctors, and
-              Managers.
-            </div>
-          </div>
-        </div>
         <Outlet />
       </div>
     </div>

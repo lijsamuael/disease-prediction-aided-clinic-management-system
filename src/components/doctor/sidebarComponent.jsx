@@ -40,40 +40,38 @@ export default function SidebarComponent(props) {
             </Link>
           </li>
 
-          <li>
-          </li>
-          <li>
-          </li>
+          <li></li>
+          <li></li>
           <li>
             <Link
               to="/doctor/prescription"
               className="relative flex flex-row items-center pr-6 border-l-4 border-transparent h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 hover:border-blue-500 dark:hover:border-gray-800"
             >
               <span className="inline-flex items-center justify-center ml-4">
-              <img className="w-5 h-5" src="/icons/prescription.svg" alt="" />
+                <img className="w-5 h-5" src="/icons/prescription.svg" alt="" />
               </span>
               <span className="ml-2 text-sm tracking-wide truncate">
-              Lab Orders
+                Lab Orders
               </span>
             </Link>
           </li>
-          
+
           <li>
             <Link
               to="/doctor/treatment"
               className="relative flex flex-row items-center pr-6 border-l-4 border-transparent h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 hover:border-blue-500 dark:hover:border-gray-800"
             >
               <span className="inline-flex items-center justify-center ml-4">
-              <img className="w-5 h-5" src="/icons/lab.svg" alt="" />
+                <img className="w-5 h-5" src="/icons/lab.svg" alt="" />
               </span>
               <span className="ml-2 text-sm tracking-wide truncate">
-              Prescription
+                Prescription
               </span>
             </Link>
           </li>
         </ul>
         <p className="hidden px-5 py-3 text-xs text-center mb-14 md:block">
-          Copyright @2023
+          Copyright @2024
         </p>
       </div>
     </div>

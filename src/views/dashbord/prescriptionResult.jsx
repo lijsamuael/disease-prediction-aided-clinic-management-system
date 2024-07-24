@@ -32,7 +32,7 @@ export default function PrescriptionResult() {
         <div className="flex flex-col justify-between overflow-y-auto top-0 max-w-[1200px] overflow-x-hidden rounded-lg mx-auto my-8 ssm:w-[400px] bg-white border-2 border-gray-400 h-full  space-y-4">
           <div className="flex gap-16 bg-blue-500 text-white py-8 px-4">
             <div className="flex flex-col gap-4">
-              <h1 className="text-4xl font-bold">KIDANE MIHRET CLINIC</h1>
+              <h1 className="text-4xl font-bold">MediConnect</h1>
               <h1 className="font-mono flex justify-center items-center font-bold text-xl text-center mb-10">
                 Fill Laboratory test results and send back to a doctor
               </h1>

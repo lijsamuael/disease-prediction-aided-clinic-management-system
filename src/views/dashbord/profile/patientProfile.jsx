@@ -10,9 +10,7 @@ import { updatePatient } from "../../../redux/patientSlice";
 
 export default function PatientProfile() {
   const appointments = useSelector((state) => state.appointments.appointments);
-  const prescriptions = useSelector(
-    (state) => state.prescriptions.prescriptions
-  );
+  const prescriptions = useSelector((state) => state.diagnosises.diagnosises);
 
   const navigate = useNavigate();
 
@@ -231,7 +229,7 @@ export default function PatientProfile() {
                 </h4>
 
                 {patientPrsc != "" ? (
-                  <div className="relative px-4">
+                  <div className="relative ">
                     <div className="absolute h-full border border-dashed border-opacity-20 border-secondary"></div>
                     <div className="overflow-x-auto">
                       <table className="min-w-full bg-white">
@@ -239,9 +237,10 @@ export default function PatientProfile() {
                           <tr className="text-white  bg-blue-800 dark:bg-gray-700 dark:text-b">
                             <th className="px-4 py-2">Doctor Name</th>
                             <th className="px-4 py-2">Doctor Contact</th>
+                            <th className="px-4 py-2">Disease</th>
                             <th className="px-4 py-2">Description</th>
                             <th className="px-4 py-2">Date</th>
-                            <th className="px-4 py-2">Status</th>
+                            <th className="px-4 py-2">Payment</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -262,11 +261,12 @@ export default function PatientProfile() {
                                   {apt.doctorContact}
                                 </td>
                                 <td className="px-4 py-2 border">
-                                  {apt.description}
+                                  {apt.disease}
                                 </td>
                                 <td className="px-4 py-2 border">
-                                  {apt.issueDate}
+                                  {apt.dosage}
                                 </td>
+                                <td className="px-4 py-2 border">{apt.date}</td>
                                 <td className="px-4 py-3 text-sm border">
                                   {apt.status === "confirmed" ? (
                                     <>

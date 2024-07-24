@@ -129,7 +129,7 @@ export default function SingIn() {
   return (
     <>
       <div
-        className="w-full p-8 bg-white dark:bg-gray-800 md:flex md:items-center md:justify-center sm:w-auto md:h-full xl:w-2/5 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none"
+        className="w-full p-8 bg-white dark:bg-gray-800 md:flex md:items-center md:justify-center  md:h-full  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none"
         style={{ fontFamily: "Poltawski Nowy" }}
       >
         <div className="w-full max-w-md space-y-4">

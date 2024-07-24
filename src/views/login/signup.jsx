@@ -48,7 +48,7 @@ export default function SingUp() {
     description: "",
     photo:
       "https://w7.pngwing.com/pngs/328/335/png-transparent-icon-user-male-avatar-business-person-profile.png",
-    gender: "Male",
+    gender: "",
     password: "",
     contact: "",
     username: "",
@@ -79,6 +79,7 @@ export default function SingUp() {
       const lastName = data.lastName;
       const phoneNumber = data.contact;
       const email = data.email;
+      
       Swal.fire("Profile Created!", "success");
 
       navigate("/signIn/payment", {
@@ -103,7 +104,7 @@ export default function SingUp() {
 
   return (
     <div
-      className="w-full p-8 bg-white dark:bg-gray-800 md:flex md:items-center md:justify-center sm:w-auto md:h-full xl:w-2/5 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none"
+      className="w-full p-8 bg-white dark:bg-gray-800 md:flex md:items-center md:justify-center  md:h-full  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none"
       style={{ fontFamily: "Poltawski Nowy" }}
     >
       <div className="w-full max-w-md space-y-4 ">

@@ -123,7 +123,7 @@ export default function LabDoctorDashbord(props) {
                 <li></li>
               </ul>
               <p className="hidden px-5 py-3 text-xs text-center mb-14 md:block">
-                Copyright @2023
+                Copyright @2024
               </p>
             </div>
           </div>

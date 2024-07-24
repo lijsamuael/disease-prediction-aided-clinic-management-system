@@ -6,9 +6,8 @@ import { sendBackdiagnosis } from "../../redux/diagnosisSlice";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 export default function FinanceContent(props) {
-  const prescriptions = useSelector(
-    (state) => state.prescriptions.prescriptions
-  );
+  const prescriptions = useSelector((state) => state.diagnosises.diagnosises);
+  console.log("prescriptions", prescriptions);
   const patients = useSelector((state) => state.patients.patients);
   const doctors = useSelector((state) => state.doctors.doctors);
   const [prescriptionsWithNames, setPrescriptionWithNames] = useState([]);
@@ -75,6 +74,43 @@ export default function FinanceContent(props) {
     });
   };
 
+  const printReceipt = (prescription) => {
+    const printWindow = window.open("", "", "height=600,width=800");
+    printWindow.document.write("<html><head><title>Receipt</title>");
+    printWindow.document.write("<style>");
+    printWindow.document.write(
+      "table { width: 100%; border-collapse: collapse; }"
+    );
+    printWindow.document.write(
+      "th, td { border: 1px solid black; padding: 8px; text-align: left; }"
+    );
+    printWindow.document.write("th { background-color: #f2f2f2; }");
+    printWindow.document.write("</style>");
+    printWindow.document.write("</head><body>");
+    printWindow.document.write("<h2>Prescription Receipt</h2>");
+    printWindow.document.write("<table>");
+    printWindow.document.write("<thead><tr>");
+    printWindow.document.write("<th>Patient Name</th>");
+    printWindow.document.write("<th>Doctor Name</th>");
+    printWindow.document.write("<th>Dosage</th>");
+    printWindow.document.write("<th>Date</th>");
+    printWindow.document.write("<th>Price</th>");
+    printWindow.document.write("</tr></thead>");
+    printWindow.document.write("<tbody>");
+    printWindow.document.write("<tr>");
+    printWindow.document.write(`<td>${prescription.patientName}</td>`);
+    printWindow.document.write(`<td>${prescription.doctorName}</td>`);
+    printWindow.document.write(`<td>${prescription.dosage}</td>`);
+    printWindow.document.write(`<td>${prescription.date}</td>`);
+    printWindow.document.write(`<td>${prescription.price}</td>`);
+    printWindow.document.write("</tr>");
+    printWindow.document.write("</tbody>");
+    printWindow.document.write("</table>");
+    printWindow.document.write("</body></html>");
+    printWindow.document.close();
+    printWindow.print();
+  };
+
   return (
     <>
       <div className="mx-4 mt-4">
@@ -102,7 +138,7 @@ export default function FinanceContent(props) {
                   {prescriptionsWithNames &&
                     prescriptionsWithNames.map(
                       (prescription, index) =>
-                        prescription.status === "issued" && (
+                        prescription.status === "unpaid" && (
                           <tr className="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400">
                             <td className="px-4 py-3 ">
                               <div className="flex items-center text-sm">
@@ -170,14 +206,14 @@ export default function FinanceContent(props) {
                     <th className="px-4 py-3">Price</th>
 
                     {/* <th className="px-4 py-3">Test Detail</th> */}
-                    {/* <th className="px-4 py-4">Actions</th> */}
+                    <th className="px-4 py-4">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                   {prescriptionsWithNames &&
                     prescriptionsWithNames.map(
                       (prescription, index) =>
-                        prescription.status === "confirmed" && (
+                        prescription.status !== "unpaid" && (
                           <tr className="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400">
                             <td className="px-4 py-3 ">
                               <div className="flex items-center text-sm">
@@ -206,6 +242,18 @@ export default function FinanceContent(props) {
                             </td>
                             <td className="px-4 py-3 text-sm">
                               {prescription.price}
+                            </td>
+                            <td className="px-2 py-3">
+                              <div className="inline-flex items-center space-x-3">
+                                <div className="flex-shrink-0">
+                                  <button
+                                    onClick={() => printReceipt(prescription)}
+                                    className="p-2 text-sm font-medium text-white rounded-lg bg-primary hover:bg-blue-700"
+                                  >
+                                    Get Receipt
+                                  </button>
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         )

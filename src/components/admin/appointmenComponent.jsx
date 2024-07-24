@@ -19,19 +19,18 @@ export default function AppointmentComponent(props) {
     return patient ? `${patient.firstName} ${patient.lastName}` : "";
   };
   const dispatch = useDispatch();
-  // const [toBeUpdated, setToBeUpdated] = useState();
+
   const [showModal, setShowModal] = useState(false);
   const [appointmentToBeUpdated, setAppointementToBeUpdated] = useState(null);
+
   const handleClose = () => {
     setShowModal(false);
     setAppointementToBeUpdated(null);
   };
-  const handleShow = (appointment) => {
-    setShowModal(true);
-    setAppointementToBeUpdated(appointment);
-  };
+
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
   const handleSearch = (e) => {
     if (e) {
       e.preventDefault();
@@ -64,7 +63,7 @@ export default function AppointmentComponent(props) {
   }, []);
 
   useEffect(() => {
-    handleSearch(); // Call handleSearch whenever appointmentsWithNames or searchText changes
+    handleSearch();
   }, [searchText, appointmentsWithNames]);
 
   if (!appointments) {
@@ -137,8 +136,8 @@ export default function AppointmentComponent(props) {
           <div class="w-full   overflow-visible">
             <table class="w-full sm:w-full">
               <thead>
-                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                  <th class="px-4 py-3">PatientName</th>
+                <tr class="  tracking-wide font-extrabold text-md text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-900">
+                  <th class="px-4 py-3">Patient Name</th>
                   <th class="px-4 py-3">Appointed Doctor</th>
                   <th class="px-4 py-4">Fee</th>
                   <th class="px-4 py-4">Date</th>
@@ -150,14 +149,6 @@ export default function AppointmentComponent(props) {
               <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                 {searchResults.map((appointment, index) => (
                   <React.Fragment key={index}>
-                    {appointmentToBeUpdated &&
-                      appointmentToBeUpdated.id === appointment.id && (
-                        <UpdateAppointment
-                          showModal={showModal}
-                          handleClose={handleClose}
-                          appointmentToBeUpdated={appointmentToBeUpdated}
-                        />
-                      )}
                     <tr className="text-gray-700 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-gray-400">
                       <td className="px-4 py-3">
                         <div className="flex items-center text-sm">
@@ -202,8 +193,14 @@ export default function AppointmentComponent(props) {
                             title="Edit"
                             className="hover:text-black"
                             onClick={() => {
-                              console.log(appointment.id);
-                              handleShow(appointment);
+                              console.log("lakjd", appointment);
+                              setAppointementToBeUpdated(appointment);
+                              setShowModal(true);
+                              console.log(
+                                "updated inside",
+                                appointmentToBeUpdated
+                              );
+                              console.log("modal inside", showModal);
                             }}
                           >
                             <svg
@@ -272,6 +269,11 @@ export default function AppointmentComponent(props) {
             </table>
           </div>
         </div>
+        <UpdateAppointment
+          showModal={showModal}
+          handleClose={handleClose}
+          appointmentToBeUpdated={appointmentToBeUpdated}
+        />
       </div>
     </>
   );

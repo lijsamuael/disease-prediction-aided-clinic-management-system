@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="p-4  max-w-screen-xl mx-auto  sm:p-6 ">
       <div className="mb-6 md:mb-0">
         <a href="/" className="flex items-center">
-          <img src="/logos/logo1.png" className="h-8 mr-3" alt="Kidane" />
+          <img src="/logos/logo1.png" className="h-8 mr-3" alt="MediConnect" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             MediConnect
           </span>
@@ -116,7 +116,7 @@ export default function Footer() {
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
             <a href="/" className="hover:underline">
-              Kidane Mihret Clinic
+              MediConnect
             </a>
             . All Rights Reserved.
           </span>

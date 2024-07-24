@@ -77,13 +77,13 @@ export default function Home() {
               The center is equipped with the latest medical technologies and
               equipment, enabling the staff to diagnose and treat a wide range
               of medical conditions and perform complex surgeries. Services
-              offered at KidaneMihret Special Medical and Surgical Center
-              include general medicine, cardiology, pediatrics, gynecology,
-              orthopedics, neurology, dermatology, ophthalmology, and dentistry,
-              among others.
+              offered at MediConnect Special Medical and Surgical Center include
+              general medicine, cardiology, pediatrics, gynecology, orthopedics,
+              neurology, dermatology, ophthalmology, and dentistry, among
+              others.
             </p>
             <p className="mb-4 font-medium">
-              KidaneMihret Special Medical and Surgical Center is dedicated to
+              MediConnect Special Medical and Surgical Center is dedicated to
               providing high-quality, personalized care to their patients. With
               their team of skilled medical professionals and state-of-the-art
               equipment, patients can feel confident in the care they receive at

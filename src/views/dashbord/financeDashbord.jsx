@@ -39,7 +39,7 @@ export default function FinanceDashbord(props) {
 
               <div>
                 <p className="font-medium leading-4 group-hover:text-indigo-400">
-                  Finance
+                  Pharmacy / Finance
                 </p>
                 <span className="text-xs text-slate-400">
                   {/* {currentUser.username} */}
@@ -119,7 +119,7 @@ export default function FinanceDashbord(props) {
                 <li></li>
               </ul>
               <p className="hidden px-5 py-3 text-xs text-center mb-14 md:block">
-                Copyright @2023
+                Copyright @2024
               </p>
             </div>
           </div>

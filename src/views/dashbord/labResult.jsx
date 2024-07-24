@@ -85,7 +85,7 @@ export default function LabResult() {
         <div className="flex flex-col  dark:bg-gray-800 justify-between overflow-y-auto top-0  overflow-x-hidden rounded-lg mx-auto my-8  bg-white border-2 dark:border-0 border-gray-400 h-full  space-y-4">
           <div className="flex gap-16 px-4 py-8 text-white bg-blue-500 dark:bg-gray-800">
             <div className="flex flex-col gap-4">
-              <h1 className="text-4xl font-bold">KIDANE MIHRET CLINIC</h1>
+              <h1 className="text-4xl font-bold">MediConnect</h1>
               <h1 className="flex items-center justify-center mb-10 font-mono text-xl font-bold text-center">
                 Fill Laboratory test results and send back to a doctor
               </h1>

@@ -74,7 +74,7 @@ export default function AddDoctor({
   return (
     <form className="box-content w-full max-w-lg p-10 m-auto mt-10 border-2 border-gray-200">
       <h1 className="mb-10 text-xl font-bold text-center">
-        Kidane Mihret Clinic Doctor Registration Form
+        MediConnect Doctor Registration Form
       </h1>
       <div className="grid grid-cols-2 gap-8 mb-6 -mx-3">
         <div className="w-full px-3">
